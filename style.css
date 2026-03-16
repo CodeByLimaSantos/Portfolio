@@ -1,0 +1,483 @@
+/* ─── FONTES ─────────────────────────────── */
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;700&family=JetBrains+Mono:wght@400;600&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  will-change: background-position;
+  font-family: 'Sora', sans-serif;
+  background: linear-gradient(
+    270deg,
+    #020617,
+    #04130b,
+    #022c22,
+    #020617
+  );
+  background-size: 400% 400%;
+  animation: gradientMove 25s ease infinite;
+  color: #e5e7eb;
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+@keyframes gradientMove {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* ─── SCROLL PROGRESS BAR ────────────────── */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  width: 0%;
+  background: linear-gradient(90deg, #22c55e, #57ff94);
+  z-index: 9999;
+  transition: width 0.1s linear;
+  box-shadow: 0 0 8px rgba(34, 197, 94, 0.6);
+}
+
+/* ─── NAVBAR ─────────────────────────────── */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 30px;
+  position: sticky;
+  top: 0;
+  width: 100%;
+  background: rgba(2, 6, 23, 0.8);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid #0f172a;
+  z-index: 1000;
+  transition: top 0.35s ease;
+}
+
+.logo {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: #57ff94;
+}
+
+.nav-links {
+  display: flex;
+  gap: 35px;
+  list-style: none;
+  margin-left: auto;
+}
+
+.nav-links a {
+  position: relative;
+  text-decoration: none;
+  color: #94a3b8;
+  font-size: 0.9rem;
+  padding-bottom: 6px;
+  transition: color .3s;
+}
+
+.nav-links a:hover { color: #22c55e; }
+
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  left: 0; bottom: 0;
+  width: 100%; height: 2px;
+  background: #00ff5e;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform .3s ease;
+}
+
+.nav-links a:hover::after { transform: scaleX(1); }
+
+.menu-toggle {
+  display: none;
+  font-size: 1.8rem;
+  cursor: pointer;
+}
+
+/* ─── HERO ───────────────────────────────── */
+.hero {
+  text-align: center;
+  padding: 120px 20px;
+  max-width: 900px;
+  margin: auto;
+}
+
+.hero h1 { font-size: clamp(2rem, 5vw, 3.2rem); }
+
+.hero h2 {
+  font-family: 'JetBrains Mono', monospace;
+  color: #22c55e;
+  margin-top: 10px;
+  font-weight: 600;
+  font-size: clamp(1rem, 3vw, 1.4rem);
+}
+
+.hero p {
+  margin-top: 10px;
+  opacity: 0.85;
+  color: #94a3b8;
+}
+
+/* ─── CURSOR TYPING ──────────────────────── */
+.cursor {
+  display: inline-block;
+  color: #22c55e;
+  font-weight: 300;
+  animation: blink 0.7s step-end infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+
+/* ─── BOTÃO CURRÍCULO ────────────────────── */
+.btn-cv {
+  display: inline-block;
+  margin-top: 30px;
+  padding: 14px 28px;
+  background: linear-gradient(135deg, #22c55e, #16a34a);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: 0.5s;
+}
+
+.btn-cv:hover {
+  transform: translateY(-3px);
+  background: linear-gradient(135deg, #167a3b, #15803d);
+}
+
+/* ─── SEÇÕES ─────────────────────────────── */
+.section {
+  padding: 90px 20px;
+  max-width: 1100px;
+  margin: auto;
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: 40px;
+  font-size: 1.8rem;
+}
+
+.section-tag {
+  text-align: center;
+  color: #22c55e;
+  font-size: 0.8rem;
+  letter-spacing: 2px;
+  margin-bottom: 10px;
+  opacity: 0.9;
+}
+
+/* ─── SOBRE MIM ──────────────────────────── */
+.sobre-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 30px;
+  text-align: center;
+  max-width: 1200px;
+  border-radius: 10px;
+  margin: auto;
+  margin-top: 60px;
+}
+
+.sobre-card {
+  transition: transform 5s ease, box-shadow 1s ease, opacity 5s ease, filter 1s ease;
+}
+
+.sobre-card:hover {
+  transform: translateY(25px);
+  box-shadow: 0 6px 15px rgba(166, 255, 139, 0.075);
+}
+
+.sobre-card i {
+  padding: 25px;
+  font-size: 22px;
+  text-align: center;
+  color: #22c55e;
+  margin-top: 5px;
+}
+
+.sobre-card h3 {
+  text-align: center;
+  margin-bottom: 6px;
+  font-size: 1.05rem;
+}
+
+/* ─── GRID PADRÃO ────────────────────────── */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+}
+
+/* ─── CARDS ──────────────────────────────── */
+.card {
+  background: #00000000;
+  padding: 25px;
+  border-radius: 0px;
+  transition: 0.25s;
+  text-align: center;
+}
+
+.card:hover {
+  transform: translateY(10px);
+  border-color: #22c55e;
+}
+
+.card a {
+  display: inline-block;
+  margin-top: 12px;
+  color: #22c55e;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+/* ─── TECH STACK ─────────────────────────── */
+.tech-stack { text-align: center; }
+
+.tech {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  opacity: 0;
+  transform: translateY(30px);
+  filter: blur(8px);
+  cursor: pointer;
+  transition: all 0.8s ease, box-shadow 0.2s ease;
+}
+
+.tech.active {
+  opacity: 1;
+  transform: translateY(0);
+  filter: blur(0);
+}
+
+.tech.clicked {
+  box-shadow: 0 0 18px rgba(34, 197, 94, 0.35);
+}
+
+.tech-icon {
+  width: 50px;
+  margin-bottom: 10px;
+  filter: brightness(0) invert(1);
+  transition: filter 0.3s ease;
+}
+
+.tech-icon:hover {
+  filter: brightness(0) invert(0.3) sepia(1) saturate(8) hue-rotate(100deg);
+}
+
+.tech-icon.js-original { filter: none; }
+
+/* ─── TAGS DE FRAMEWORK ──────────────────── */
+.tech-tag {
+  font-family: 'JetBrains Mono', monospace;
+  display: inline-block;
+  background: rgba(99, 179, 237, 0.15);
+  color: #81d676;
+  border: 1px solid rgba(99, 179, 237, 0.3);
+  border-radius: 4px;
+  padding: 1px 6px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+/* ─── BOTÃO VER CÓDIGO ───────────────────── */
+.btn-code {
+  font-family: 'JetBrains Mono', monospace;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 16px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  color: #63b3ed;
+  font-size: clamp(0.8rem, 2vw, 0.95rem);
+  font-weight: 500;
+  text-decoration: none;
+  box-shadow: 0 4px 18px rgba(99, 179, 237, 0.15);
+  transition: box-shadow 0.3s ease, color 0.25s, transform 0.2s;
+  width: fit-content;
+}
+
+.btn-code:hover {
+  background: #54ffaf;
+  color: #0f172a;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 24px rgba(84, 255, 175, 0.2);
+}
+
+/* ─── NOTA DE PROJETOS ───────────────────── */
+.projects-note {
+  text-align: center;
+  margin-top: 32px;
+  font-size: clamp(0.8rem, 2vw, 0.95rem);
+  opacity: 0.75;
+}
+
+.projects-note a {
+  color: #05ee3ffd;
+  text-decoration: underline;
+}
+
+/* ─── PROJETOS — blur + zoom out mais lento ─ */
+.card.project {
+  opacity: 0;
+  transform: scale(1.06);
+  filter: blur(10px);
+  transition:
+    opacity  1.4s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 1.6s cubic-bezier(0.22, 1, 0.36, 1),
+    filter   1.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.card.project.visible {
+  opacity: 1;
+  transform: scale(1);
+  filter: blur(0);
+}
+
+/* ─── CONTATO — título normal, cards com blur ─ */
+.contact-grid .card.contact-card {
+  opacity: 0;
+  transform: scale(1.05);
+  filter: blur(10px);
+  transition:
+    opacity  1.4s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 1.6s cubic-bezier(0.22, 1, 0.36, 1),
+    filter   1.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.contact-grid .card.contact-card.visible {
+  opacity: 1;
+  transform: scale(1);
+  filter: blur(0);
+}
+
+.contact-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+/* ─── EMAIL ROW ──────────────────────────── */
+.email-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.email-text {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: clamp(0.75rem, 2.5vw, 0.95rem);
+  word-break: break-all;
+}
+
+.copy-btn {
+  background: transparent;
+  border: 1px solid currentColor;
+  border-radius: 6px;
+  padding: 4px 8px;
+  cursor: pointer;
+  color: inherit;
+  transition: opacity 0.2s, transform 0.15s;
+  flex-shrink: 0;
+}
+
+.copy-btn:hover { opacity: 0.75; }
+.copy-btn:active { transform: scale(0.9); }
+
+/* ─── FEEDBACK COPIADO ───────────────────── */
+.copy-feedback {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: clamp(0.7rem, 2vw, 0.85rem);
+  color: #1cff24fd;
+  margin-top: 6px;
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease, opacity 0.3s ease;
+}
+
+.copy-feedback.show {
+  max-height: 40px;
+  opacity: 1;
+}
+
+/* ─── FOOTER ─────────────────────────────── */
+footer {
+  text-align: center;
+  padding: 30px;
+  background: #020617;
+  border-top: 1px solid #0f172a;
+  margin-top: 60px;
+  font-size: 0.9rem;
+  color: #94a3b8;
+}
+
+/* ─── ANIMAÇÃO SCROLL (reveal geral) ─────── */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s ease;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ─── RESPONSIVO ─────────────────────────── */
+@media(max-width:1024px) {
+  .sobre-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media(max-width:768px) {
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    background: #020617;
+    position: absolute;
+    right: 0;
+    top: 70px;
+    padding: 20px;
+    width: 200px;
+    border-left: 1px solid #0f172a;
+  }
+
+  .nav-links.active { display: flex; }
+  .menu-toggle { display: block; }
+
+  .hero { padding: 90px 20px; }
+  .section { padding: 70px 20px; }
+  .sobre-container { grid-template-columns: 1fr; }
+
+  .card.project {
+    transition:
+      opacity  1.4s cubic-bezier(0.22, 1, 0.36, 1),
+      transform 1.6s cubic-bezier(0.22, 1, 0.36, 1),
+      filter   1.4s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+}
